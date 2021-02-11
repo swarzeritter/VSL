@@ -1,0 +1,5 @@
+username=str("test")
+passw=str("test")
+file = open("VSC-online\.vscode\sftp.json", "w")
+file.write('{ \n    "name": "School29",\n    "host": "192.168.212.101",\n    "protocol": "ftp",\n    "port": 21,\n    "username": "'+username+'",\n    "password": "'+passw+'",\n    "remotePath": "/",\n    "uploadOnSave": true\n}')
+file.close()
