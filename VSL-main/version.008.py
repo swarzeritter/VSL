@@ -92,7 +92,7 @@ def upload():
             filename = filename+i
             if i == "/":
                 filename = filename[::-1]
-                mb.showerror("Успіх", "Файл завантажено!")
+                mb.showinfo("Успіх", "Файл завантажено!")
                 break  
         filterone = filename.replace("/", "")
         session.storbinary('STOR '+str(filterone)+'', file)
@@ -102,8 +102,7 @@ def upload():
     filedir = askopenfilename() 
     session = ftplib.FTP("192.168.212.101",''+username+'',''+steptwo+'')
     directory = session.nlst()
-    print(len(directory))
-    if len(directory)==0:
+    if not directory:
         load()
     else:
         count = 0
@@ -136,15 +135,11 @@ def upload():
             h = (h//2) -200
             newwindow.title("test")
             newwindow.geometry('400x400+{}+{}'.format(w, h))
-            p = 0
             namebatt = ""
-            print(text)
             for i in text:
                 if i == ">":
-                    print()
-            while z!= p:
-                button = Button(text=''+directory[count]+'')
-                button.place(relx=.5, rely=.85, anchor="c",height=20, width=100)
+                    button = Button(text=''+directory[count]+'')
+                    button.place(relx=.5, rely=.85, anchor="c",height=20, width=100)
             newwindow.mainloop()
         
 root = Tk()
